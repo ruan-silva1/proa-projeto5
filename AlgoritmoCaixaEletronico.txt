@@ -1,0 +1,41 @@
+pede pelo nome do usuario
+grave o nome do usuario
+mostre ola +  nome do usuario
+
+
+saldo = 150
+pede para o usuario escolher uma opcao
+mostra a opcao selecionada
+
+caso a opcao seja igual a 1
+	mostra saldo e reinicia
+caso a opcao seja igual a 2
+	fazerdeposito
+	pede para o usuario escolher um valor
+	grava o valor
+		se valor for menor ou = 0
+		mostre numero invalido
+		fazerdeposito
+		senao
+		saldo + = valor
+		mostra saldo e reinicia
+caso a opcao seja 3
+	saque
+	pede um valor para saque
+	grava saque
+	se saque for menor ou igual a 0
+		diga um numero valido
+		saque
+	se saque for maior que saldo 
+	  escreva operacao nao realizada
+	  saque
+	saldo = saldo - saque
+	saldo
+caso a opcao seja nenhuma dessas
+	erro
+	mostre opcao invalida 
+	reinicie
+caso a opcao seja 5
+	mostre programa finalizado
+		
+
