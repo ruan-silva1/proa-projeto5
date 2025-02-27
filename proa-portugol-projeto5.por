@@ -2,6 +2,8 @@ programa
 {
 	
    	real saldo = 150.00// Float
+	inteiro extrato[100]
+	inteiro qtdeExtrato = 0
 
    	funcao inicio(){
    		cadeia nome
@@ -17,7 +19,8 @@ programa
 		escreva("1. Ver saldo\n")
 		escreva("2. Fazer depósito\n")
 		escreva("3. Fazer saque\n")
-		escreva("4. Sair\n")
+		escreva("4. veExtrato\n")
+		escreva("5. Sair\n")
 		leia(opcao)
 
 		escreva("A opção selecionada foi: " +opcao + "\n")
@@ -29,7 +32,9 @@ programa
     			pare
     			caso 3: fazerSaque()
     			pare
-    			caso 4: sair()
+    			caso 4: verExtrato()
+    			pare
+    			caso 5:erro()
     			pare
     			caso contrario :erro()
     		}
@@ -52,6 +57,8 @@ programa
 			fazerDeposito()
 		} senao {
 			saldo = saldo + deposito
+			extrato[qtdeExtrato] = deposito
+			qtdeExtrato++
 			verSaldo()
 		}
 	}
@@ -64,7 +71,7 @@ programa
 		leia(saque)
 	
 		se (saque <= 0){
-	        escreva("Por favor, informe um número válido.\n")
+	        escreva("Operaçãio nao realizadaã.\n")
 	        fazerSaque()
 		}
 		senao se(saque >= saldo){
@@ -73,6 +80,8 @@ programa
 		}
 
 			saldo = saldo - saque
+			extrato[qtdeExtrato] = - saque
+			qtdeExtrato++
 			verSaldo()
 		
 	}
@@ -82,6 +91,17 @@ programa
 		inicio()
 	}
 
+	funcao verExtrato(){
+		se(qtdeExtrato==0){
+			escreva("não hã registro")
+			retorne
+		}
+		para(inteiro i=0; i<=qtdeExtrato; i++){
+		escreva(extrato[i] + "\n")
+		i++
+		}
+	}
+	
 	funcao sair(){
 		escreva("Programa encerrado")
 	}
@@ -91,8 +111,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 174; 
- * @DOBRAMENTO-CODIGO = [79];
+ * @POSICAO-CURSOR = 1753; 
+ * @DOBRAMENTO-CODIGO = [42, 88];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
