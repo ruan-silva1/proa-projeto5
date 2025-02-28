@@ -1,7 +1,10 @@
 pede pelo nome do usuario
 grave o nome do usuario
 mostre ola +  nome do usuario
+inteiro extrato[100]
+qtdeExtrato = 0
 
+3 100
 
 saldo = 150
 pede para o usuario escolher uma opcao
@@ -18,19 +21,28 @@ caso a opcao seja igual a 2
 		fazerdeposito
 		senao
 		saldo + = valor
+		extrato[qtdeExtrato] = valor
+		qtdeExtrato++
 		mostra saldo e reinicia
 caso a opcao seja 3
 	saque
 	pede um valor para saque
 	grava saque
 	se saque for menor ou igual a 0
-		diga um numero valido
+		diga operacao nao autorizada
 		saque
 	se saque for maior que saldo 
 	  escreva operacao nao realizada
 	  saque
 	saldo = saldo - saque
+	extrato[qtdeExtrato] = - valor
+	qtdeExtrato++
 	saldo
+caso a opcao seja 4 
+	enquanto 0>qtdeExtrato{
+		mostre extrato[qtdeExtrato]
+		qtdeExtrato--
+	}
 caso a opcao seja nenhuma dessas
 	erro
 	mostre opcao invalida 

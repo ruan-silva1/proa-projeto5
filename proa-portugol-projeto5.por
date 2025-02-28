@@ -96,9 +96,15 @@ programa
 			escreva("não hã registro")
 			retorne
 		}
-		para(inteiro i=0; i<=qtdeExtrato; i++){
-		escreva(extrato[i] + "\n")
-		i++
+		para(inteiro i=0; i<qtdeExtrato; i++){
+		se(extrato[i] < 0){
+		escreva("saque de " + (extrato[i] * (-1)) + "\n")
+		}
+		senao se(extrato[i] > 0){
+		escreva("deposito de " + extrato[i] + "\n")
+		}
+
+		
 		}
 	}
 	
@@ -111,7 +117,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1753; 
+ * @POSICAO-CURSOR = 1937; 
  * @DOBRAMENTO-CODIGO = [42, 88];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
