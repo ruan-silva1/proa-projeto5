@@ -1,12 +1,12 @@
 programa
 {
 	inclua biblioteca Tipos 
+	cadeia nome
    	real saldo = 150.00// Float
 	inteiro extrato[100]
 	inteiro qtdeExtrato = 0
 
    	funcao inicio(){
-   		cadeia nome
 		escreva("digite seu nome ")
 		leia(nome)
 		escreva("Olá! " + nome)
@@ -15,11 +15,11 @@ programa
 
 	funcao operarBanco() {
 		inteiro opcao
-		escreva("Escolha uma opção:\n")
+		escreva("\n Escolha uma opção:\n")
 		escreva("1. Ver saldo\n")
-		escreva("2. Fazer depósito\n")
+		escreva("2. ver Extrato\n")
 		escreva("3. Fazer saque\n")
-		escreva("4. veExtrato\n")
+		escreva("4. Fazer depósito\n")
 		escreva("5. fazerTransferência\n")
 		escreva("6. Sair\n")
 		leia(opcao)
@@ -29,15 +29,15 @@ programa
     		escolha(opcao){
     			caso 1: verSaldo() 
     			pare
-    			caso 2: fazerDeposito()
+    			caso 4: fazerDeposito()
     			pare
     			caso 3: fazerSaque()
     			pare
-    			caso 4: verExtrato()
+    			caso 2: verExtrato()
     			pare
     			caso 5:fazerTransferencia()
     			pare
-    			caso 6:erro()
+    			caso 6:sair()
     			pare
     			caso contrario :erro()
     		}
@@ -51,10 +51,12 @@ programa
 	funcao fazerDeposito() {
 
 		real deposito
+
+		pedirSenha()
 		
 		escreva("Qual o valor para depósito? ")
 		leia(deposito)
-		
+
 		se (deposito <= 0){
 			escreva("Por favor, informe um número válido.\n")
 			fazerDeposito()
@@ -69,7 +71,8 @@ programa
 	funcao fazerSaque(){
 	
 		real saque
-	
+		
+		pedirSenha()
 		escreva("Qual o valor para saque? ")
 		leia(saque)
 	
@@ -86,6 +89,8 @@ programa
 	}
 
 	funcao verExtrato(){
+		pedirSenha()
+		
 		se(qtdeExtrato==0){
 			escreva("não hã registro")
 			retorne
@@ -103,6 +108,7 @@ programa
 	}
 
 	funcao fazerTransferencia(){
+	pedirSenha()
 	inteiro numeroDaConta,valor
 	escreva("digite o numero da conta ")
 	leia(numeroDaConta)
@@ -121,7 +127,18 @@ programa
 	}
 	
 	funcao sair(){
-		escreva("Programa encerrado")
+		escreva(nome + " Obrigado por acessar nosso Banco! Até Breve! ")
+	}
+
+	funcao pedirSenha(){
+		inteiro senha
+		escreva("digite sua senha ")
+		leia(senha)
+		se(senha != 3589){
+			escreva("senha invalida\n")
+			pedirSenha()
+		}
+	
 	}
 
 	funcao erro() {
@@ -134,8 +151,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2384; 
- * @DOBRAMENTO-CODIGO = [45, 87, 104];
+ * @POSICAO-CURSOR = 81; 
+ * @DOBRAMENTO-CODIGO = [45, 50, 70, 90, 109, 128, 132, 143];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
