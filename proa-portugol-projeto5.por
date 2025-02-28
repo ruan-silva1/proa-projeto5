@@ -70,13 +70,9 @@ programa
 		escreva("Qual o valor para saque? ")
 		leia(saque)
 	
-		se (saque <= 0){
-	        escreva("Operaçãio nao realizadaã.\n")
+		se (saque <= 0 ou saque >=saldo){
+	        escreva("Operação nao realizada.\n")
 	        fazerSaque()
-		}
-		senao se(saque >= saldo){
-			escreva("Operacao nao realizada")
-	        	fazerSaque()
 		}
 
 			saldo = saldo - saque
@@ -117,8 +113,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1937; 
- * @DOBRAMENTO-CODIGO = [42, 88];
+ * @POSICAO-CURSOR = 1356; 
+ * @DOBRAMENTO-CODIGO = [42, 84];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
