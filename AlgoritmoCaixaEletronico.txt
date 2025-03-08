@@ -18,7 +18,7 @@ caso a opcao seja igual a 2
 		se valor for menor ou = 0
 		mostre numero invalido
 		fazerdeposito
-		senao
+	senao
 		saldo + = valor
 		extrato[qtdeExtrato] = valor
 		qtdeExtrato++
@@ -28,23 +28,26 @@ caso a opcao seja 3
 	saque
 	pede um valor para saque
 	grava saque
-	se saque for menor ou igual a 0
+	se saque for menor ou igual a 0 ou saque > saldo
 		diga operacao nao autorizada
 		saque
-	se saque for maior que saldo 
-	  escreva operacao nao realizada
-	  saque
+	senao
 	saldo = saldo - saque
 	extrato[qtdeExtrato] = - valor
 	qtdeExtrato++
 	saldo
 caso a opcao seja 4 
 	senha
+	extrato
+	se qtdeExtrato = 0 
+		mostre nenhuma operacao realizada
 	para i=0;enquanto i<qtdeExtrato i++{
 		se extrato[i] < 0 {
-		saida de mostre extrato[i] * (-1)
-		}senao{
-		deposito de extrato[i]
+		mostre saida de extrato[i] * (-1)
+		} 
+			mostre nenhuma operacao realizada
+		senao{
+		mostre deposito de extrato[i]
 		}
 	}
 caso a opcao seja 5
@@ -69,7 +72,8 @@ caso a opcao seja 6
 caso a opcao seja nenhuma dessas
 	erro
 	mostre opcao invalida 
-	reinicie
+aguarde 5 segundos
+reinicie
 
 inserir senha
 mostre ao usuario que ele deve inserir uma senha
