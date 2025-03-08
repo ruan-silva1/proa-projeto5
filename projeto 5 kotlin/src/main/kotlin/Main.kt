@@ -29,8 +29,9 @@ fun operarBanco() {
         2 -> mostrarExtrato()
         3 -> fazerSaque()
         4 -> fazerDeposito()
-       // 5 -> fazerTransferencia()
-       // 6 -> encerrarPrograma()
+        5 -> fazerTransferencia()
+        6 -> encerrarPrograma()
+        else -> println("escolha a opcao correta!")
     }
 
     operarBanco()
@@ -50,6 +51,7 @@ fun validarSenha(){
 }
 
 fun fazerDeposito(){
+    validarSenha()
     println("escolha um valor para deposito")
     val valor = readln().toDouble()
     if(valor <=0){
@@ -64,6 +66,7 @@ fun fazerDeposito(){
 }
 
 fun fazerSaque(){
+    validarSenha()
     println("escolha um valor para saque")
     val saque = readln().toDouble()
     if(saque <= 0 || saque > saldo){
@@ -79,6 +82,7 @@ fun fazerSaque(){
 }
 
 fun mostrarExtrato(){
+    validarSenha()
     var i=0
     if(qtdeExtrato == 0){
         println("nenhuma operacao realizada até o momento!")
@@ -93,4 +97,30 @@ fun mostrarExtrato(){
         }
         i++
     }
+}
+
+fun fazerTransferencia(){
+    validarSenha()
+    println("Qual numero da conta para deposito?")
+    val numeroConta = readln()
+    if(numeroConta.length < 4){
+        println("numero da conta invalido!")
+        fazerTransferencia()
+    }
+    println("qual valor da transferencia")
+    val valor = readln().toDouble()
+    if(valor <= 0 || valor > saldo){
+        println("operacao nao pode ser realizada")
+    }
+    else{
+        saldo-=valor
+        extrato[qtdeExtrato] = - valor
+        qtdeExtrato++
+        mostrarSaldo()
+    }
+}
+
+fun encerrarPrograma(){
+    println("programa finalizado")
+    return
 }
